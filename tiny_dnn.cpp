@@ -28,10 +28,10 @@ void run_onetime(tiny_dnn::network<tiny_dnn::sequential>& net, agent& age) {
     cout << x << "," << y << "\n";
     age.setposition(x, y);
     tiny_dnn::vec_t act;
+    state.clear();
+    rewards.clear();
     while (1) {
         gen += 1;
-        state.clear();
-        rewards.clear();
         if (random_int(10) < 3) {
             action = random_int(4);
             cout << "random" << action << "\n";
