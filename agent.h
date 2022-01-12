@@ -1,8 +1,10 @@
 #pragma once
 
 #include "tiny_dnn/tiny_dnn.h"
-#define GOALX 50
-#define GOALY 50
+#define MAXX 50
+#define MAXY 50
+#define GOALX 25
+#define GOALY 25
 #define GENMAX 500
 
 using namespace std;
@@ -14,6 +16,7 @@ public:
     float dist_goal();
     void move(int action);
     tiny_dnn::vec_t now_pos();
+    tiny_dnn::vec_t pos_vec();
 };
 
 void InitRand();
@@ -26,3 +29,5 @@ int act_by_net(tiny_dnn::vec_t result);
 tiny_dnn::vec_t rewards_vec(int action, float reward);
 
 int learn_end(tiny_dnn::vec_t pos, int gen);
+
+int check_goal(tiny_dnn::vec_t pos, int gen);
